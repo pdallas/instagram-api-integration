@@ -1,0 +1,48 @@
+{% extends "base_layout.html" %}
+{% block title %} Login Page {% endblock %}
+
+{% block content %}
+	{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+  	{% endif %}
+
+
+<style type="text/css">
+  	.margintop150{
+	margin-top: 150px;
+	}
+	.margintop15{
+	margin-top: 15px;
+	}
+	.marginleft100{
+	margin-left: 100px;
+	}
+	.marginleft450{
+	margin-left: 450px;
+	}
+  </style>
+
+<form action="#" method="post">
+  <div class="form-group">
+	  <div class="row margintop150">
+		  <div class="col-md-3 marginleft100">
+    		<label for="exampleInputEmail1"><b>Email address :</b></label>
+    		<input type="email" class="form-control" id="exampleInputEmail1" name="login_mail" aria-describedby="emailHelp" placeholder="Enter email">
+    		<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		  </div>
+	  </div>
+  </div>
+	<div class="form-group">
+		<div class="row margintop15">
+			<div class="col-md-3 marginleft100">
+				<label for="exampleInputPassword1"><b>Password :</b></label>
+				<input type="password" class="form-control" id="exampleInputPassword1" name="login_password" placeholder="Password">
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 marginleft450">
+  <button type="submit" class="btn btn-primary">Login</button>
+	</div>
+</form>
+{% endblock %}
+

@@ -1,0 +1,71 @@
+{% extends "base_layout.html" %}
+{% block title %} Available Store Accounts {% endblock %}
+{% block content %}
+		{% if error %}
+    	<p class=error><strong>Error:</strong> {{ error }}
+  		{% endif %}
+<style>
+.container {
+  padding: 2rem 0rem;
+  align-self: left;
+}
+.sansserif {
+  font-family: Arial, Helvetica, sans-serif;
+}
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+.table-image {
+  td, th {
+    vertical-align: center;
+  }
+}
+</style>
+
+
+<form method="post">
+<div class="sansserif">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Store Name</th>
+            <th scope="col">Instagram Account</th>
+            <th scope="col">Instagram ID</th>
+            <th scope="col">Followers</th>
+            <th scope="col">Posts</th>
+            <th scope="col">Bio</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        {% for obj in accounts %}
+        <tbody>
+          <tr>
+            <td scope="row">{{ obj.number }}</td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.username }}</td>
+            <td>{{ obj.id }}</td>
+            <td>{{ obj.followers_count }}</td>
+            <td>{{ obj.media_count }}</td>
+            <td>{{ obj.biography }}</td>
+            <td>
+              <button type="submit" name="selectedstore" value={{obj.username}} class="btn btn-success"><i class="fa fa-television" aria-hidden="true"></i></button>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</form>
+{% endblock %}
+
+
+{% block script %}
+<script src="https://use.fontawesome.com/12f79945b0.js"></script>
+{% endblock %}
